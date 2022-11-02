@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import { FormEvent, useState } from 'react'
+import Swal from 'sweetalert2'
+
 import { api } from '../lib/axios'
 
 import appPreviewImg from '../assets/app-nlw-copa-preview.png'
@@ -28,11 +30,27 @@ export default function Home({ poolCount, guessCount, userCount }: HomeProps) {
 
       await navigator.clipboard.writeText(code)
 
-      alert(`Bolão criado com sucesso! O código ${code} foi copiado para a área de transferência!`)
+      Swal.fire({
+        titleText: 'Bolão criado com sucesso!',
+        text: `O código ${code} foi copiado para a área de transferência!`,
+        icon: 'success',
+        background: '#121214',
+        color: '#E1E1E6',
+        confirmButtonColor: '#129E57',
+      })
       setPoolName('')
     } catch (error) {
       console.log(error);
-      alert('Falha ao criar o bolão. Tente novamente!')
+      Swal.fire({
+        titleText: 'Falha ao criar o bolão!',
+        text: 'Tente novamente!',
+        icon: 'error',
+        background: '#121214',
+        color: '#E1E1E6',
+        confirmButtonColor: '#129E57',
+      })
+
+      setPoolName('')
     }
   }
 
