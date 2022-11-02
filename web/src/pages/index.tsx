@@ -96,12 +96,13 @@ export default function Home({ poolCount, guessCount, userCount }: HomeProps) {
         src={appPreviewImg}
         alt="Dois celulares exibindo uma prévia da aplicação móvel do NLW Copa"
         quality={100}
+        priority
       />
     </div>
   )
 }
 
-export const getServerSideProps = async () => {
+export async function getStaticProps() {
   const [
     poolCountResponse,
     guessCountResponse,
