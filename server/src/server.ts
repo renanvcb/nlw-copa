@@ -40,16 +40,16 @@ async function bootstrap() {
       }
     })
 
-    return reply.status(201).send({ poolCode })
+    return reply.status(201).send({ code: poolCode })
   })
 
-  fastify.get('/user/count', async () => {
+  fastify.get('/users/count', async () => {
     const count = await prisma.user.count()
     
     return {count}
   })
 
-  fastify.get('/guess/count', async () => {
+  fastify.get('/guesses/count', async () => {
     const count = await prisma.guess.count()
     
     return {count}
