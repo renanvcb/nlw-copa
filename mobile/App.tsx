@@ -12,6 +12,7 @@ import { Pools } from './src/screens/Pools';
 import { AuthContextProvider } from './src/contexts/AuthContext';
 
 import { THEME } from './src/styles/theme';
+import { SignIn } from './src/screens/SignIn';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -28,7 +29,7 @@ export default function App() {
           backgroundColor='transparent'
           translucent
         />
-        {!fontsLoaded ? <Loading /> : <Pools />}
+        {!fontsLoaded ? <Loading /> : <SignIn />}
       </AuthContextProvider>
     </NativeBaseProvider>
   );
