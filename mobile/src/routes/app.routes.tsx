@@ -12,7 +12,7 @@ const { Navigator, Screen } = createBottomTabNavigator()
 export function AppRoutes() {
   const { colors, sizes } = useTheme()
 
-  const iconSize = 18
+  const iconSize = 22
 
   return (
     <Navigator screenOptions={{
@@ -28,7 +28,7 @@ export function AppRoutes() {
       },
       tabBarItemStyle: {
         position: 'relative',
-        top: Platform.OS === 'android' ? -3 : 0
+        // top: Platform.OS === 'android' ? -3 : 0,
       }
     }}>
       <Screen
@@ -36,7 +36,8 @@ export function AppRoutes() {
         component={NewPool}
         options={{
           tabBarIcon: ({ color }) => <PlusCircle color={color} size={iconSize} />,
-          tabBarLabel: 'Novo Bolão'
+          tabBarLabel: 'Novo Bolão',
+          tabBarLabelStyle: {fontWeight: '500', fontSize: 16}
         }}
       />
       <Screen
@@ -44,7 +45,8 @@ export function AppRoutes() {
         component={Pools}
         options={{
           tabBarIcon: ({ color }) => <SoccerBall color={color} size={iconSize} />,
-          tabBarLabel: 'Meus Bolões'
+          tabBarLabel: 'Meus Bolões',
+          tabBarLabelStyle: {fontWeight: '500', fontSize: 16}
         }}
       />
       <Screen
