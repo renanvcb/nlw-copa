@@ -78,7 +78,7 @@ export async function guessRoutes(fastify: FastifyInstance) {
       data: {
         gameId,
         participantId: participant.id,
-        firsTeamPoints: firstTeamPoints,
+        firstTeamPoints,
         secondTeamPoints        
       }
     })
